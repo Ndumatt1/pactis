@@ -1,0 +1,14 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile.prod
+    image: wallet_app
+    container_name: wallet_app
+    command: yarn run start:prod
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    env_file:
+      - ../.env
+
